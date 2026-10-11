@@ -17,12 +17,76 @@
             font-family: Arial, Helvetica, sans-serif;
             color: #222;
             background-color: #b8c9d9;
-            background-image:
-                radial-gradient(#9aafc3 1px, transparent 1px);
+            background-image: radial-gradient(#9aafc3 1px, transparent 1px);
             background-size: 4px 4px;
         }
 
-        /* top navigation */
+        /* BREAKING NEWS TICKER */
+
+        .breaking-news {
+            width: 100%;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #fff;
+            border-bottom: 2px solid #999;
+            box-shadow: 0 2px 4px #0003;
+            white-space: nowrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        .breaking-label {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            flex-shrink: 0;
+            background: linear-gradient(#e94b4b, #a91e1e);
+            border-right: 1px solid #821515;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 900;
+            text-shadow: 1px 1px #701010;
+            z-index: 2;
+        }
+
+        .news-track {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            width: max-content;
+            flex-shrink: 0;
+            padding-left: 30px;
+            animation: news-scroll 35s linear infinite;
+        }
+
+        .news-track span {
+            color: #222;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .news-track .separator {
+            color: #b52a2a;
+        }
+
+        .breaking-news:hover .news-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes news-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* TOP NAVIGATION */
 
         .topbar {
             background: linear-gradient(#7898b8, #45698d);
@@ -71,7 +135,7 @@
             color: #152c42;
         }
 
-        /* main page */
+        /* MAIN PAGE */
 
         .page {
             max-width: 1000px;
@@ -111,8 +175,7 @@
         .hero {
             text-align: center;
             padding: 65px 20px 55px;
-            background:
-                linear-gradient(180deg, #ffffff 0%, #edf2f7 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #edf2f7 100%);
             border-bottom: 1px solid #c2ced9;
             overflow-wrap: anywhere;
         }
@@ -164,7 +227,7 @@
             font-family: "Courier New", monospace;
         }
 
-        /* bottom information panels */
+        /* INFORMATION PANELS */
 
         .panels {
             display: grid;
@@ -217,6 +280,8 @@
             color: #365876;
         }
 
+        /* MOBILE */
+
         @media (max-width: 600px) {
             .topbar-inner {
                 align-items: flex-start;
@@ -238,11 +303,50 @@
             .panels {
                 grid-template-columns: 1fr;
             }
+
+            .breaking-label {
+                padding: 0 10px;
+                font-size: 10px;
+            }
+
+            .news-track {
+                gap: 25px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .news-track {
+                animation: none;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- BREAKING NEWS -->
+
+    <div class="breaking-news">
+        <div class="breaking-label">BREAKING NEWS</div>
+
+        <div class="news-track">
+            <span>CULTEN HAS BEEN EATEN BY WORMS</span>
+            <span class="separator">✦</span>
+            <span>4POUPS HAS BEEN SENTENCED FOR THE MURDER OF BRIAN</span>
+            <span class="separator">✦</span>
+            <span>DAMAXIA DEAD AT 32 FROM FATAL PINWORMS</span>
+            <span class="separator">✦</span>
+
+            <span>CULTEN HAS BEEN EATEN BY WORMS</span>
+            <span class="separator">✦</span>
+            <span>4POUPS HAS BEEN SENTENCED FOR THE MURDER OF BRIAN</span>
+            <span class="separator">✦</span>
+            <span>DAMAXIA DEAD AT 32 FROM FATAL PINWORMS</span>
+            <span class="separator">✦</span>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
 
     <header class="topbar">
         <div class="topbar-inner">
@@ -255,6 +359,8 @@
             </nav>
         </div>
     </header>
+
+    <!-- CONTENT -->
 
     <main class="page">
 
@@ -287,6 +393,7 @@
 
             <section class="panel">
                 <h2>ABOUT THIS SITE</h2>
+
                 <div class="panel-content">
                     a home for the collective.<br>
                     more information coming soon.
@@ -297,6 +404,7 @@
 
             <section class="panel">
                 <h2>ELSEWHERE ON THE WEB</h2>
+
                 <div class="panel-content">
                     find us on soundcloud.
                     <br><br>
