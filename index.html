@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,44 +8,314 @@
 
     <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background: #000;
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: 0;
+            min-height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
+            color: #222;
+            background-color: #b8c9d9;
+            background-image:
+                radial-gradient(#9aafc3 1px, transparent 1px);
+            background-size: 4px 4px;
         }
 
-        .container {
-            padding: 20px;
+        /* top navigation */
+
+        .topbar {
+            background: linear-gradient(#7898b8, #45698d);
+            border-bottom: 3px solid #304c68;
+            padding: 12px 6%;
+            box-shadow: 0 2px 5px #0005;
+            color: white;
+        }
+
+        .topbar-inner {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .mini-logo {
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-shadow: 1px 2px #304c68;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px 12px;
+            background: linear-gradient(#91abc5, #587b9d);
+            border: 1px solid #304c68;
+            border-top-color: #b5c9dc;
+            border-left-color: #b5c9dc;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(#d0dce8, #8ca9c4);
+            color: #152c42;
+        }
+
+        /* main page */
+
+        .page {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 0 15px;
+        }
+
+        .announcement {
+            background: #fff;
+            border: 1px solid #8298ab;
+            padding: 9px 12px;
+            margin-bottom: 14px;
+            font-size: 12px;
+            box-shadow: 1px 2px 3px #0002;
+        }
+
+        .announcement strong {
+            color: #45698d;
+        }
+
+        .window {
+            background: #fff;
+            border: 1px solid #6d8297;
+            box-shadow: 2px 3px 0 #71879c;
+        }
+
+        .window-header {
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 8px 12px;
+            background: linear-gradient(#7799bb, #476b90);
+            border-bottom: 1px solid #304c68;
+            text-shadow: 1px 1px #304c68;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 55px;
+            background:
+                linear-gradient(180deg, #ffffff 0%, #edf2f7 100%);
+            border-bottom: 1px solid #c2ced9;
+            overflow-wrap: anywhere;
+        }
+
+        .eyebrow {
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #6b7f91;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 10vw, 9rem);
+            margin: 0;
+            font-size: clamp(36px, 8vw, 84px);
+            line-height: .95;
             font-weight: 900;
-            letter-spacing: -0.06em;
+            letter-spacing: -5px;
+            color: #171717;
+            text-shadow: 2px 3px 0 #cbd5df;
         }
 
-        p {
-            font-size: clamp(1.5rem, 4vw, 3rem);
-            margin-top: 10px;
+        .divider {
+            width: 90px;
+            height: 5px;
+            margin: 25px auto;
+            background: #52789c;
+            border: 1px solid #365876;
+        }
+
+        .soon {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(#fff, #dce5ee);
+            border: 1px solid #8da1b4;
+            border-top-color: #fff;
+            border-left-color: #fff;
+            box-shadow: 2px 2px 0 #b1bfcd;
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #73808c;
+            font-family: "Courier New", monospace;
+        }
+
+        /* bottom information panels */
+
+        .panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .panel {
+            background: #fff;
+            border: 1px solid #8298ab;
+            box-shadow: 1px 2px 3px #0002;
+        }
+
+        .panel h2 {
+            margin: 0;
+            padding: 9px 12px;
+            font-size: 12px;
+            color: #fff;
+            background: linear-gradient(#7799bb, #476b90);
+            border-bottom: 1px solid #304c68;
+        }
+
+        .panel-content {
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 3px 7px;
+            background: #e6edf4;
+            border: 1px solid #b3c3d1;
+            color: #45698d;
+            font-family: "Courier New", monospace;
+            font-size: 11px;
             font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            color: #5d7184;
+            font-size: 11px;
+            line-height: 2;
+        }
+
+        footer a {
+            color: #365876;
+        }
+
+        @media (max-width: 600px) {
+            .topbar-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .page {
+                margin-top: 20px;
+            }
+
+            .hero {
+                padding: 50px 12px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .panels {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>TRIBEGANG.WORLD</h1>
-        <p>Soon...........</p>
-    </div>
+
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="mini-logo">TRIBEGANG.WORLD</div>
+
+            <nav class="nav-links">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="https://soundcloud.com/">SOUNDCLOUD</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+
+        <div class="announcement">
+            <strong>NEWS:</strong>
+            something is being put together. check back soon.
+        </div>
+
+        <section class="window">
+            <div class="window-header">
+                TRIBEGANG.WORLD / MAIN PAGE
+            </div>
+
+            <div class="hero">
+                <div class="eyebrow">WELCOME TO THE INTERNET</div>
+
+                <h1>TRIBEGANG.<br>WORLD</h1>
+
+                <div class="divider"></div>
+
+                <div class="soon">SOON...........</div>
+
+                <div class="subtitle">
+                    &gt; currently under construction_
+                </div>
+            </div>
+        </section>
+
+        <div class="panels">
+
+            <section class="panel">
+                <h2>ABOUT THIS SITE</h2>
+                <div class="panel-content">
+                    a home for the collective.<br>
+                    more information coming soon.
+                    <br><br>
+                    <span class="status">STATUS: BUILDING</span>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>ELSEWHERE ON THE WEB</h2>
+                <div class="panel-content">
+                    find us on soundcloud.
+                    <br><br>
+                    <a href="https://soundcloud.com/"
+                       style="color:#365876;font-weight:bold;">
+                        &gt; VISIT SOUNDCLOUD
+                    </a>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            TRIBEGANG.WORLD © 2026<br>
+            BEST VIEWED ON THE WORLD WIDE WEB
+        </footer>
+
+    </main>
+
 </body>
 </html>
+```
